@@ -1,0 +1,16 @@
+<main>
+    <h1>Dados do Livro</h1>
+
+    <form (submit)="incluir()" ngNativeValidate>
+        <input type="text" [(ngModel)]="livro.titulo" required name="titulo">
+        <textarea [(ngModel)]="livro.resumo" name="resumo"></textarea>
+
+        <select [(ngModel)]="livro.codEditora" name="codEditora">
+            <option *ngFor="let editora of editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
+        </select>
+
+        <textarea name="autores" [(ngModel)]="autoresForm"></textarea>
+
+        <button>Salvar Dados</button>
+    </form>
+</main>
