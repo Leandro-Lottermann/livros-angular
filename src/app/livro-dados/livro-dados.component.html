@@ -1,16 +1,50 @@
-<main>
-    <h1>Dados do Livro</h1>
+<main class="container-fluid">
+  <h1>Dados do Livro</h1>
 
-    <form (submit)="incluir()" ngNativeValidate>
-        <input type="text" [(ngModel)]="livro.titulo" required name="titulo">
-        <textarea [(ngModel)]="livro.resumo" name="resumo"></textarea>
+  <form (submit)="incluir()" ngNativeValidate>
+    <div class="mb-3">
+      <label for="titulo">Título</label>
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="livro.titulo"
+        required
+        name="titulo"
+        id="titulo"
+      />
+    </div>
 
-        <select [(ngModel)]="livro.codEditora" name="codEditora">
-            <option *ngFor="let editora of editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
-        </select>
+    <div class="mb-3">
+      <label for="resumo">Resumo</label>
+      <textarea
+        class="form-control"
+        [(ngModel)]="livro.resumo"
+        name="resumo"
+        id="resumo"
+        rows="5"
+      ></textarea>
+    </div>
 
-        <textarea name="autores" [(ngModel)]="autoresForm"></textarea>
+    <div class="mb-3">
+      <label for="editora">Editora</label>
+      <select class="form-select" id="editora" [(ngModel)]="livro.codEditora" name="codEditora">
+        <option *ngFor="let editora of editoras" [value]="editora.codEditora">
+          {{ editora.nome }}
+        </option>
+      </select>
+    </div>
 
-        <button>Salvar Dados</button>
-    </form>
+    <div class="mb-3">
+      <label for="autores"></label>
+      <textarea
+        class="form-control"
+        name="autores"
+        [(ngModel)]="autoresForm"
+        id="autores"
+        rows="6"
+      ></textarea>
+    </div>
+
+    <button class="btn btn-primary">Salvar Dados</button>
+  </form>
 </main>
